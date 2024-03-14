@@ -23,6 +23,7 @@ public class GDRUIManager : MonoBehaviour
 
         return instance;
     }
+
     [SerializeField] private Transform main_parentPanel;
 
     public void OpenPanel(Transform obj)
