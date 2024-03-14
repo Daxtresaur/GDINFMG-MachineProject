@@ -17,6 +17,7 @@ public class CharacterSelectionPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI charClass;
     [SerializeField] private TextMeshProUGUI charElement;
     [SerializeField] private TextMeshProUGUI charWeapon;
+    [SerializeField] private TextMeshProUGUI charWeaponNotes;
     [SerializeField] private Image charIcon;
     [Header("Note panel")]
     [SerializeField] private TextMeshProUGUI charDescription;
@@ -78,6 +79,7 @@ public class CharacterSelectionPanel : MonoBehaviour
                 {
                     string[] weaponData = www.downloadHandler.text.Split(",");
                     charWeapon.SetText(weaponData[0]);
+                    if (weaponData.Length >= 2) { charWeaponNotes.SetText(weaponData[1]); }
                 }
             }
 
