@@ -43,7 +43,7 @@ public class Web : MonoBehaviour
             for (int i = 0; i < rows.Length - 1; i++)
             {
                 string[] columns = rows[i].Split(",");
-
+                if (columns.Length == 1 || character_data.ContainsKey(columns[2])) { continue; }
                 string textUri = $"{Application.streamingAssetsPath}/CharacterThumbnails/{columns[2]}.png";
                 UnityWebRequest texRequest = UnityWebRequestTexture.GetTexture(textUri);
                 yield return texRequest.SendWebRequest();
