@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class CharacterSelectionPanel : MonoBehaviour
 {
@@ -32,8 +33,7 @@ public class CharacterSelectionPanel : MonoBehaviour
 
     private IEnumerator Co_LoadCharacters()
     {
-        yield return WaitToLoadAllCharacters();
-
+        yield return Web.GetAllCharacterData();
         foreach (CharacterData cd in Web.character_data.Values)
         {
             Button buttonClone = Instantiate(buttonPrefab, character_parentPanel);
@@ -51,7 +51,7 @@ public class CharacterSelectionPanel : MonoBehaviour
 
     public IEnumerator Co_OpenInfoPanel(string frame)
     {
-        yield return WaitToLoadAllCharacters();
+        yield return Web.GetAllCharacterData();
 
         if (Web.character_data.TryGetValue(frame, out CharacterData data))
         {
@@ -103,7 +103,4 @@ public class CharacterSelectionPanel : MonoBehaviour
             yield return mTable.Co_SetMemoryTable(frame);
         }
     }
-
-    public IEnumerator WaitToLoadAllCharacters() { while (Web.IsLoadingCharacterData) { Debug.Log("Loading Character Data"); yield return null; } }
-
 }
