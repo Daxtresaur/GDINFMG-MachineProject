@@ -171,18 +171,18 @@ public struct CharacterData
 
 public struct BossesData
 {
-    public BossesData(string name, string notes, string weakness, string resistance, char affixes)
+    public BossesData(string name, string notes, string weakness, string resistance, char group)
     {
         this.name = name;
         this.notes = notes;
         this.weakness = weakness;
         this.resistance = resistance;
-        this.affixes = affixes;
+        this.group = group;
     }
 
     public string name { get; private set; }
     public string notes { get; private set; }
     public string weakness { get; private set; }
     public string resistance { get; private set; }
-    public char affixes { get; private set; }
+    public char group { get; private set; }
 }

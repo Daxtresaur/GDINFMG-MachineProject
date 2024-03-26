@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class BossesHUB : MonoBehaviour
 {
-    [SerializeField] private Transform boss_parentPanel;
+    [SerializeField] private PainCagePanel painCagePanel;
+    [SerializeField] private Transform alpha_boss_parentPanel;
+    [SerializeField] private Transform beta_boss_parentPanel;
+    [SerializeField] private Transform gamma_boss_parentPanel;
+
     //[SerializeField] private GameObject character_infoPanel;
     [SerializeField] private Button buttonPrefab;
 
@@ -20,14 +25,37 @@ public class BossesHUB : MonoBehaviour
     {
         yield return Web.GetAllBosses();
 
-        Debug.Log(Web.bosses_data.Count);
+        //Debug.Log(Web.bosses_data.Count);
         foreach (BossesData bd in Web.bosses_data.Values)
         {
-            Button buttonClone = Instantiate(buttonPrefab, boss_parentPanel);
-            //buttonClone.GetComponentInChildren<Image>().sprite = cd.sprite;
+            Button buttonClone;
+            if (bd.group == 'a')
+            {
+                buttonClone = Instantiate(buttonPrefab, alpha_boss_parentPanel);
+                
+            }
+            else if(bd.group == 'b')
+            {
+                buttonClone = Instantiate(buttonPrefab, beta_boss_parentPanel);
+            }
+            else if(bd.group == 'y')
+            {
+                buttonClone = Instantiate(buttonPrefab, gamma_boss_parentPanel);
+            }
+            else
+            {
+                continue;
+            }
+
             buttonClone.GetComponentInChildren<TextMeshProUGUI>().SetText(bd.name);
-            //buttonClone.onClick.AddListener(() => OpenInfoPanel(cd.frame));
             buttonClone.gameObject.SetActive(true);
+            buttonClone.onClick.AddListener(() => OpenPainCagePanel(bd.name));
+            //buttonClone.onClick.AddListener(() => OpenInfoPanel(cd.frame));
         }
+    }
+
+    public void OpenPainCagePanel(string name)
+    {
+        painCagePanel.OpenMe(name);
     }
 }
