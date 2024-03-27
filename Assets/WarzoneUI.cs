@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 
 public class WarzoneUI : MonoBehaviour
 {
+    [SerializeField] TMP_InputField CharacterInputField;
     [SerializeField] TMP_Dropdown ElementDropDown;
     [SerializeField] WarzoneTeamsPanel WarzoneTeamsPanelPrefab;
     [field: SerializeField] private IndividualTeamPanel TeamPrefab;
@@ -44,7 +45,7 @@ public class WarzoneUI : MonoBehaviour
             if (teams.competitive) panel.transform.SetSiblingIndex(wtpClone.Main.transform.GetSiblingIndex() + 1);
             else panel.transform.SetSiblingIndex(wtpClone.F2P.transform.GetSiblingIndex() + 1);
             panel.gameObject.SetActive(true);
-            wtpClone.AddIndividualPanel(panel);
+            wtpClone.AddIndividualPanel(panel, teams.competitive);
             wtpClone.ActivateIndividualPanels(panel);
         }
 
@@ -67,10 +68,20 @@ public class WarzoneUI : MonoBehaviour
         string query = "WHERE ";
 
         //Add Element
+        bool hasElement = false;
         string element = ElementDropDown.options[ElementDropDown.value].text;
-        query = element == "-" ? query : query + $"element = '{ElementDropDown.options[ElementDropDown.value].text}'";
+        if (element != "-")
+        {
+            query = query + $"element = '{ElementDropDown.options[ElementDropDown.value].text}'";
+            hasElement = true;
+        }
 
+        string character = CharacterInputField.text;
+
+        if (character.Length > 0 && hasElement) query += " AND ";
+        query = character.Length > 0 ? query + $"(blue LIKE '{character}%' OR red LIKE '{character}%' OR yellow LIKE '{character}%')" : query;
         query = query == "WHERE " ? "" : query;
+        Debug.Log($"QUERY: {query}");
         StartCoroutine(Co_FilterByCharacter(query));
     }
 
