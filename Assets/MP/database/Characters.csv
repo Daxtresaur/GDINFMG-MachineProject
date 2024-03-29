@@ -1,0 +1,52 @@
+id,name,frame,rank,element,class
+1,Lucia,Lotus,B,Physical,Attacker
+2,Liv,Eclipse,B,Physical,Support
+3,Nanami,Storm,B,Physical,Tank
+4,Lucia,Dawn,A,Lightning,Attacker
+5,Liv,Lux,A,Physical,Support
+6,Lee,Palefire,A,Physical;Fire,Attacker
+7,Watanabe,Nightblade,A,Physical,Attacker
+8,Bianca,Zero,A,Physical,Attacker
+9,Karenina,Blast,A,Physical;Fire,Attacker
+10,Liv,Luminance,S,Physical,Support
+11,Lee,Entropy,S,Fire;Physical,Attacker
+12,Karenina,Ember,S,Fire,Attacker
+13,Nanami,Pulse,S,Fire;Physical,Tank
+14,Kamui,Tenebrion,S,Dark;Physical,Tank
+15,Lucia,Crimson Abyss,S,Physical,Attacker
+16,Kamui,Bastion,A,Physical,Tank
+17,Watanabe,Astral,A,Dark;Physical,Attacker
+18,Ayla,Brilliance,A,Physical,Tank
+19,Bianca,Veritas,S,Lightning;Physical,Attacker
+20,Sophia,Silverfang,A,Fire;Physical,Support
+21,Chrome,Arclight,A,Lightning;Physical,Tank
+22,Lucia,Plume,S,Ice;Physical,Attacker
+23,Vera,Rozen,A,Dark;Physical,Support
+24,Camu,Crocotta,S,Dark;Physical,Vanguard
+25,Rosetta,Rigor,S,Physical,Tank
+26,Changyu,Qilin,A,Ice;Physical,Tank
+27,Qu,Pavo,S,Physical,Vanguard
+28,Luna,Laurel,S,Dark,Attacker
+29,Wanshi,Hypnos,A,Ice;Physical,Support
+30,Selena,Tempest,S,Lightning;Physical,Vanguard
+31,Chrome,Glory,S,Ice;Physical,Tank
+32,No.21,XXI,A,Dark;Physical,Tank
+33,Vera,Garnet,S,Lightning;Physical,Tank
+34,Roland,Flambeau,S,Fire;Physical,Vanguard
+35,Liv,Empyrea,S,Fire;Physical,Amplifier
+36,Selena,Capriccio,S,Dark;Physical,Amplifier
+37,Pulao,Dragontoll,S,Physical,Vanguard
+38,Nanami,Starfarer,S,Fire;Physical,Tank
+39,Haicma,Starveil,S,Ice;Physical,Vanguard
+40,Karenina,Scire,S,Dark;Physical,Tank
+41,Noan,Arca,S,Lightning;Physical,Vanguard
+42,Bianca,Stigmata,S,Physical,Attacker
+43,Bambinata,Vitrum,A,Ice;Physical,Attacker
+44,Lee,Hyperreal,S,Fire;Physical,Attacker
+45,Ayla,Kaleido,S,Ice;Physical,Amplifier
+46,Lucia,Crimson Weave,S,Lightning;Physical,Attacker
+47,Hanying,Zitherwoe,A,Physical,Support
+48,No.21,Ferel Scent,S,Lightning;Physical,Amplifier
+49,Noctis,Indomitus,A,Lightning,Attacker
+50,Alisa,Echo,S,Physical,Amplifier
+51,Lamia,Lost Lullaby,S,Dark,Attacker
