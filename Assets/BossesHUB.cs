@@ -49,13 +49,13 @@ public class BossesHUB : MonoBehaviour
 
             buttonClone.GetComponentInChildren<TextMeshProUGUI>().SetText(bd.name);
             buttonClone.gameObject.SetActive(true);
-            buttonClone.onClick.AddListener(() => OpenPainCagePanel(bd.name));
+            buttonClone.onClick.AddListener(() => OpenPainCagePanel(bd));
             //buttonClone.onClick.AddListener(() => OpenInfoPanel(cd.frame));
         }
     }
 
-    public void OpenPainCagePanel(string name)
+    public void OpenPainCagePanel(BossesData bossesData)
     {
-        painCagePanel.OpenMe(name);
+        painCagePanel.OpenMe(bossesData.name, bossesData.weakness);
     }
 }

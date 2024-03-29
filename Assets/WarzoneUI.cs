@@ -82,10 +82,10 @@ public class WarzoneUI : MonoBehaviour
         query = character.Length > 0 ? query + $"(blue LIKE '{character}%' OR red LIKE '{character}%' OR yellow LIKE '{character}%')" : query;
         query = query == "WHERE " ? "" : query;
         Debug.Log($"QUERY: {query}");
-        StartCoroutine(Co_FilterByCharacter(query));
+        StartCoroutine(Co_FilterTeams(query));
     }
 
-    public IEnumerator Co_FilterByCharacter(string filter)
+    public IEnumerator Co_FilterTeams(string filter)
     {
         yield return Web.GetAllCharacterData();
 
@@ -109,7 +109,7 @@ public class WarzoneUI : MonoBehaviour
                 string[] ids = www.downloadHandler.text.Split(",");
                 foreach (WarzoneTeamsPanel wzTeamPanels in WarzoneElement.Values)
                 {
-                    foreach(IndividualTeamPanel iTeamPanel in wzTeamPanels.individualTeamPanels)
+                    foreach (IndividualTeamPanel iTeamPanel in wzTeamPanels.individualTeamPanels)
                     {
                         if (ids.Contains(iTeamPanel.id.ToString()))
                         {
