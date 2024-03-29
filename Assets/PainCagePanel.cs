@@ -20,7 +20,7 @@ public class PainCagePanel : MonoBehaviour
     {
         GDRUIManager.GetInstance().OpenPanel(transform);
         this.boss_nameText.SetText(boss_name);
-        boss_affixesText.SetText(boss_name);
+        boss_affixesText.SetText(affixes);
         StartCoroutine(FillTeams($"WHERE element = '{affixes}';"));
     }
 
