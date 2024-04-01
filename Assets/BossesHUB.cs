@@ -47,6 +47,7 @@ public class BossesHUB : MonoBehaviour
                 continue;
             }
 
+            buttonClone.GetComponentInChildren<Image>().sprite = bd.sprite;
             buttonClone.GetComponentInChildren<TextMeshProUGUI>().SetText(bd.name);
             buttonClone.gameObject.SetActive(true);
             buttonClone.onClick.AddListener(() => OpenPainCagePanel(bd));
