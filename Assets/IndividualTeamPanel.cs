@@ -22,12 +22,33 @@ public class IndividualTeamPanel : MonoBehaviour
         yield return Web.GetAllCharacterData();
 
         this.id = teamData.id;
+        Debug.Log("Blue: " + teamData.blue.ToString());
         blueImg.sprite = Web.character_data[teamData.blue].sprite;
         blueName.SetText(teamData.blue);
 
+        Debug.Log("Red: " + teamData.red.ToString());
         redImg.sprite = Web.character_data[teamData.red].sprite;
         redName.SetText(teamData.red);
 
+        Debug.Log("Yellow: " + teamData.yellow.ToString());
+        yellowImg.sprite = Web.character_data[teamData.yellow].sprite;
+        yellowName.SetText(teamData.yellow);
+    }
+
+    public IEnumerator SetPanel(BuiltTeamData teamData)
+    {
+        yield return Web.GetAllCharacterData();
+
+        this.id = teamData.id;
+        Debug.Log("Blue: " + teamData.blue.ToString());
+        blueImg.sprite = Web.character_data[teamData.blue].sprite;
+        blueName.SetText(teamData.blue);
+
+        Debug.Log("Red: " + teamData.red.ToString());
+        redImg.sprite = Web.character_data[teamData.red].sprite;
+        redName.SetText(teamData.red);
+
+        Debug.Log("Yellow: " + teamData.yellow.ToString());
         yellowImg.sprite = Web.character_data[teamData.yellow].sprite;
         yellowName.SetText(teamData.yellow);
     }

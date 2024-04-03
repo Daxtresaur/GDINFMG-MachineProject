@@ -9,6 +9,7 @@ public class Web : MonoBehaviour
     public static Dictionary<string, CharacterData> character_data { get; private set; } = new();
     public static Dictionary<string, BossesData> bosses_data { get; private set; } = new();
     public static Dictionary<int, TeamData> team_data { get; private set; } = new();
+    public static Dictionary<int, BuiltTeamData> builtteam_data { get; private set; } = new();
     //public static bool IsLoadingCharacterData { get; private set; } = true;
     //public static bool IsLoadingBosses { get; private set; } = true;
     private void Start()
@@ -188,6 +189,46 @@ public class Web : MonoBehaviour
             }
         }
     }
+
+    public static IEnumerator GetAllBuiltTeams()
+    {
+        //IsLoadingBosses = true;
+        string url = "http://localhost/MP/GetBuiltTeams.php";
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] cPages = url.Split('/');
+            int cPage = cPages.Length - 1;
+
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(cPages[cPage] + ": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(cPages[cPage] + ": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(cPages[cPage] + ":\nReceived: " + webRequest.downloadHandler.text);
+                    break;
+            }
+
+            string[] rows = webRequest.downloadHandler.text.Split("\n");
+            for (int i = 0; i < rows.Length - 1; i++)
+            {
+                string[] columns = rows[i].Split(",");
+
+                int id = int.Parse(columns[0]);
+                if (columns.Length == 1 || team_data.ContainsKey(id)) { continue; }
+
+                BuiltTeamData data = new(id, columns[1], columns[2], columns[3], columns[4], float.Parse(columns[5]), columns[6]);
+                builtteam_data.Add(id, data);
+            }
+        }
+    }
 }
 
 public struct CharacterData
@@ -255,3 +296,26 @@ public struct TeamData
     public float score { get; private set; }
     public string element { get; private set; }
 }
+
+public struct BuiltTeamData
+{
+    public BuiltTeamData(int id, string blue, string red, string yellow, string leader, float score, string element)
+    {
+        this.id = id;
+        this.blue = blue;
+        this.red = red;
+        this.yellow = yellow;
+        this.leader = leader;
+        this.score = score;
+        this.element = element;
+    }
+
+    public int id { get; private set; }
+    public string blue { get; private set; }
+    public string red { get; private set; }
+    public string yellow { get; private set; }
+    public string leader { get; private set; }
+    public float score { get; private set; }
+    public string element { get; private set; }
+}
+
