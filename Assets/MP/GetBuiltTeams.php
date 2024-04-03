@@ -15,19 +15,26 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$filter = $_POST["filterSQL"];
-
-$sql = "SELECT id FROM teams $filter";
-
+$sql = "SELECT * FROM `team builder`";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo $row["id"] . ",";
-  }
-} else {
-  echo "0 results";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo 
+      $row["id"]. "," . 
+      $row["blue"]. "," . 
+      $row["red"]. "," .
+      $row["yellow"]. "," . 
+      $row["leader"]. "," .
+      $row["score"]. "," .
+      $row["element"]. "\n";
+    }
+} 
+else {
+    echo "0 results";
 }
+
 $conn->close();
+
 ?>

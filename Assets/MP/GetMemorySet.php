@@ -1,7 +1,10 @@
 <?php
+// NOTE: Due to password discrepancy between two devices, check if your SQL password is the same as the $password value.
+// For example, I have mine as "root" while another (boss Nathan probably) has none ("")
+
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "mp";
 
 // Create connection
