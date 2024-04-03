@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GDRUIManager : MonoBehaviour
 {
@@ -31,4 +32,14 @@ public class GDRUIManager : MonoBehaviour
         obj.gameObject.SetActive(true);
         obj.SetAsLastSibling();
     }
-}
+
+    public void ClosePanel(Transform obj)
+    {
+        obj.gameObject.SetActive(false);
+    }
+
+    public void SetButtonInteractable(Button button, bool isInteractable)
+    {
+        button.interactable = isInteractable;
+    }
+ }
