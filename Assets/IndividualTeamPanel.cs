@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,10 @@ public class IndividualTeamPanel : MonoBehaviour
 
     [SerializeField] private Image yellowImg;
     [SerializeField] private TextMeshProUGUI yellowName;
+
+    [SerializeField] private GameObject blueLeaderObject;
+    [SerializeField] private GameObject redLeaderObject;
+    [SerializeField] private GameObject yellowLeaderObject;
 
     public IEnumerator SetPanel(TeamData teamData)
     {
@@ -51,5 +56,22 @@ public class IndividualTeamPanel : MonoBehaviour
         Debug.Log("Yellow: " + teamData.yellow.ToString());
         yellowImg.sprite = Web.character_data[teamData.yellow].sprite;
         yellowName.SetText(teamData.yellow);
+
+        SetLeader(teamData);
+    }
+
+    // NOTE: If working, this should be a Built Team-only function.
+    //       Functionality for WarZone teams can be integrated but am too deadbrained.
+    private void SetLeader(BuiltTeamData teamData)
+    {
+        blueLeaderObject.SetActive(false);
+        redLeaderObject.SetActive(false);
+        yellowLeaderObject.SetActive(false);
+
+        if (teamData.leader == null) { }
+        else if (teamData.leader.ToString() == teamData.blue.ToString()) blueLeaderObject.SetActive(true);
+        else if (teamData.leader.ToString() == teamData.red.ToString()) redLeaderObject.SetActive(true);
+        else if (teamData.leader.ToString() == teamData.yellow.ToString()) yellowLeaderObject.SetActive(true);
+        else Debug.LogWarning("Unknown leader type: " + teamData.leader);
     }
 }
