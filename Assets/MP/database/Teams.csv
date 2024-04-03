@@ -1,0 +1,22 @@
+ID,Blue,Red,Yellow,Leader,Competitive,Score,Element
+1,Echo,Stigmata,Rigor,Stigmata,Y,,Physical
+2,Echo,Crimson Abyss,Rigor,Crimson Abyss,Y,,Physical
+3,Luminance,Stigmata,Rigor,Stigmata,Y,,Physical
+4,Luminance,Crimson Abyss,Rigor,Crimson Abyss,Y,,Physical
+5,Luminance,Entropy,Rigor,Entropy,N,,Physical
+6,Eclipse,Blast,Storm,Blast,N,,Physical
+7,Empyrea,Hyperreal,Starfarer,Hyperreal,Y,,Fire
+8,Hyperreal,Empyrea,Starfarer,Hyperrreal,N,,Fire
+9,Pulse,Ember,Silverfang,Ember,N,,Fire
+10,Palefire,Silverfang,Brilliance,Palefire,N,,Fire
+11,Plume,Glory,Kaleido,Kaleido,Y,,Ice
+12,Vitrum,Hypnos,Qilin,Vitrum,N,,Ice
+13,Crimson Weave,Feral Scent,Garnet,Crimson Weave,Y,,Lightning
+14,Crimson Weave,Lux,Garnet,Crimson Weave,N,,Lightning
+15,Veritas,Lux,Garnet,Veritas,N,,Lightning
+16,Lux,Dawn,Arclight,Dawn,N,,Lightning
+17,Scire,Lost Lullaby,Capriccio,Lost Lullaby,Y,,Dark
+18,Scire,Laurel,Capriccio,Lauriel,Y,,Dark
+19,Rozen,Laurel,Scire,Lauriel,N,,Dark
+20,Rozen,Laurel,Tenebrion,Tenebrion,N,,Dark
+21,Rozen,Astral,XXI,Astral,N,,Dark

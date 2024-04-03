@@ -1,0 +1,57 @@
+id,frame,name,notes
+1,Lotus,Lotus Berserker,Basic Attack's Extra DMG Bonus increases by 10%. Physical DMG increases by 5% for 2s after each Basic Attack. Can be stacked up to 5 times. Duration resets every time it is triggered.
+2,Eclipse,Type Zero,Laser Shot's Extra DMG Bonus increases by 50%. Gains 15% ATK after a 3-Ping for 5s. Duration resets every time it is triggered.
+3,Storm,Inverse - Chimera,"Attacks have a 20% chance to inflict Breach, dealing 2% Physical DMG per second for 3s. The chance is doubled if the enemy's DEF has been reduced. Can be stacked up to 10 times. Duration resets every time it is triggered. Physical DMG increases by 10% when attacking a Breached enemy."
+4,Dawn,Inverse - Shadow,Lightning DMG Bonus increases by 5% for 4s when dealing Lightning DMG. Can be stacked up to 4 times. Signature Move increases own Extra DMG Bonus by 10% for 10s. Both duration will reset every time it is triggered.
+5,Lux,Benediction,"For every 12 orbs pinged, increases Extra DMG Bonus of the allies within 5m by 10% for 5s. Duration resets every time it is triggered. When attacking Imprisoned enemies, Extra DMG Bonus increases by 10%."
+6,Palefire,Wolf Fang,Extra DMG Bonus increases by 20% when attacking enemies in a burning area.
+7,Nightblade,Soul Ripper,"Dealing a Critical Hit from behind inflicts Breach, dealing 50% Physical DMG per second for 3s. Duration resets every time it is triggered. Physical DMG increases by 20% when attacking a Breached enemy."
+8,Zero,Ramiel,Signature Move's Extra DMG Bonus increases by 15%. Signature Move reduces its target's Physical Resistance by 2% for 5s per hit. Can be stacked up to 8 times. Duration resets every time it is triggered.
+9,Blast,Berserk Fusion,"Physical DMG increases by 10%. After a 3-Ping, Basic Attack's Extra DMG Bonus is increased by 30% for 5s. Duration resets every time it is triggered."
+10,Luminance,Dragon Wind,"Basic Attacks have a 10% chance to inflict Frail, reducing the target's ATK by 10% for 5s. Duration resets every time it is triggered. Attacking a Frail enemy has a 10% chance to restore 1 Signal Orb. 6s cooldown."
+11,Entropy,Zero Scale,Increases Skill - Space Lord's Extra DMG Bonus by 10%. Physical DMG is increased by 15% for 5s after a 3-Ping. Duration resets every time it is triggered.
+12,Ember,Fusion Dragon,Fire DMG increases by 10%. Pinging Red Orbs increases Fire DMG by 10% for 5s. Duration resets every time it is triggered.
+13,Pulse,Hydro Heat,Attacks have a 10% chance to reduce the target's Fire Resistance by 5% for 5s. 8s cooldown against the same target. A Signature Move increases Fire DMG by 20% and doubles the chance of reducing the target's Resistance.
+14,Tenebrion,Darkness,"After a 3-Ping, Physical DMG and Dark DMG dealt increase by 20% for 5s. Duration resets every time it is triggered."
+15,Crimson Abyss,Sakura,"Each Ping increases Physical DMG by 2% for 5s, stacking up to a max of 10 times and repeated trigger refreshes duration. One Sword Orb can be additionally obtained when entering Sword State. 10s cooldown."
+16,Bastion,Big Kamui,"Physical DMG increases by 15%. Upon a successful parry, Extra DMG Bonus of the next skill increases by 30%."
+17,Astral,Peacemaker,Extra DMG Bonus increases by 10%. Dark DMG increases by 10% while under Cosmic Wave state.
+18,Brilliance,Purple Peony,Extra DMG Bonus increases by 2% for 5s when dealing DMG to enemies with Super Armor. Can be stacked up to 3 times. Duration resets every time it is triggered. Stuns an enemy for 2s when breaking its Super Armor. 10s cooldown for the same target. Physical DMG increases by 15% for 7s when releasing Vector Cube. Duration resets every time it is triggered.
+19,Veritas,Tonitrus,"Lightning DMG is increased by 15%. When dealing Lightning DMG caused by skills to the same target 5 times, calls down a lightning strike that deals 150% Lightning DMG. 2s cooldown."
+20,Silverfang,Scion,"When picking up an Energy Ball, increases Extra DMG Bonus by 3% for 5s. Can be stacked up to 5 times. For every 5 Energy Balls picked up, gains an additional random Signal Orb and 10 Energy. 10s cooldown."
+21,Arclight,St. Elmo,Lightning DMG increases by 10%. No. of Lightning Strikes required to trigger Core Passive reduced to 3 under Signature - Lightning Charge.
+22,Plume,Crimson Birch,Ice DMG increases by 15%. DMG increases by 10% for 5s after 3-Ping.
+23,Rozen,Sariel,"Dark DMG increases by 15%. Attacks have a 15% chance to unleash a shadow wave, dealing 75% Dark DMG. 0.5s cooldown."
+24,Crocotta,Thanatos,"Extra DMG Bonus increases by 15%. When Camu: Crocotta enters Berserk, Thanatos will continuously increase Dark DMG for characters on the battlefield by 10%."
+25,Rigor,Gungnir,"Damaging a target will reduce their Physical DEF by 20% for 8s. The duration is refreshed each time this effect is triggered. Dealing damage with small/medium/wide-area electromagnetic beam also applies a damage over time effect for 8s, dealing Physical DMG equal to 25% / 50% / 100% of ATK every second."
+26,Qilin,Baji,Ice DMG increases by 15%. Creates Mirror Crystals for 8s after casting Flowing Whirlpool or QTE skill.
+27,Pavo,Qinghe,"Increases Physical DMG by 20% and Huiyu's attack frequency by 50%. Huiyu gains a new skill: Curse Incarnate. Curse Incarnate: Huiyu becomes a curse attached to the target, dealing up to 210% Physical DMG. It explodes after a short while to deal 240% Physical DMG. The DMG varies based on Qu's Signature Move level."
+28,Laurel,Ozma,"The dark DMG increases by 15%, and the 4th spine of annihilation orb will produce additional 100% of ranged dark DMG."
+29,Hypnos,Scale,Ice DMG increases by 15%. Gain Frost Crystal for 8s when the backstep of Blooming Shot successfully dodges an attack.
+30,Tempest,Waldmeister,"Lightning DMG increases by 20%. Roaring Thunder and Sonic Vortex can now be cast during the action of other Signal Orb skills, but cannot be cast consecutively. Leaving Chaotic M.I.N.D. will return Orbs based on the number of Orbs before entering Chaotic M.I.N.D. and rearrange them for 3-Ping."
+31,Glory,Apollo,"Ice DMG increases by 15%, QTE and any 3-Ping skill can trigger Frost Corrosion (Reduces target's Ice Resistance)."
+32,XXI,Snore,"Wide-Energy Pressure Core: Whenever No. 21: XXI performs Shadow Prism attacks, a QTE, or disrupts incoming enemy attacks, the Co-Bot unleashes a Force Wave that deals 50% AOE Dark DMG to enemies (only triggers once per second).
+Energy Suppression Unit: Hitting allies with Force Wave will grant them Energy Suppression for 3s. Energy Suppression: Dark DMG reduces the enemy's healing received by 100% for 3s.
+
+Impulse Fort Module: When the Force Wave detonates 6 Twilight Matrices at once, the Co-Bot enters Fortification mode, unleashing a hyper-pulse that deals Dark DMG equal to 411.76% of No. 21: XXI's ATK (DMG scales with Core Passive level).
+
+Inver-Resonance Unit 2.0: Increases the Extra DMG Bonus of No. 21: XXI's Twilight Matrix and Resonance Pulse by 15%."
+33,Garnet,Phoenix,"Lightning DMG increases by 15%. Victorious War Flag and Signature Move Shining Piercer can create another stack of Electric Charge. When Victorious War Flag is on the field, deploying Vera: Garnet will consume all of Electric Charge to cast Lightning Fall. Create another stack of Electric Charge afterward."
+34,Flambeau,Durendal,"Fire DMG increases by 10%. The cooldown of consecutive dodge is removed. After dodging a damage, accumulates 1 Combo 2 - Dazzling Blade, which can be cast directly toward the direction of the joystick by tapping the White Orb. Also increases Extra DMG Bonus by 10% for 8s. During Apex of Trickery, the Deception Points generated from this combo are converted into 10 Trickery Points instead."
+35,Empyrea,Hestia,"Liv: Empyrea gains 10% more ATK. Every time she enters the battlefield, she gains 50% Prayer. Fire DMG Bonus of Purity Oath against enemies affected by White Oracle increases by 20% (up to 100%)."
+36,Capriccio,Sarastro,"Each phantom unleashed by Selena: Capriccio on the field will make Selena: Capriccio deal 5% more Extra DMG. This effect can be stacked up to 6 times. Upon casting a Reprise: Echo, Selena: Capriccio gains 12 additional Signature Energy."
+37,Dragontoll,Infinity,Increases Physical DMG dealt by 15% and Base DMG of Signature - Spirit Blade Dance by 25%. CRIT Rate of Spirit Blade: Falling Stars increases by 30% for every Dragon Force Combo cast. (Can be stacked up to 2 times)
+38,Starfarer,Implosion,"Fire DMG increases by 15%. When Nanami: Starfarer is on standby, her teammates' every 3-Ping will restore 12 Signature Energy for her. Missiles will inflict Scorching Invasion upon hitting the target: reduces 15% Fire Resistance for 8s. When Nanami: Starfarer triggers the QTE, if there is Missile Support on the field, the duration of Missile Support will be refreshed."
+39,Starveil,Galatea,Bitter Frost deals 20% more Base DMG. Bitterfrost Level's Energy acquisition speed increases by 100%.
+40,Scire,Illuminare,"The Chain Fusion effect applied by Karenina: Scire increases by 10%. Each time Karenina casts Radiant Whirlwind, she recovers 1 Energy. The Extra DMG Bonus of Leap Attack increases by 20%."
+41,Arca,Prometheus,ATK increases by 10%. Triggering Gear-Break Combo or Assault-Rising Combo restores 10 Signature Energy. Dodge Gauge restores 100% faster.
+42,Stigmata,Hecate,"CRIT DMG increases by 30%. Upon entering the Sword Form, immediately gains 20 stacks of Stigmata Will and activate the Resolution status."
+43,Vitrum,Sound of Silence,"ATK increases by 10%. Bambinata: Vitrum's Pas De Chat deals 15% more Ice DMG. Every time Bambinata: Vitrum is deployed, she will forget a random color of Signal Orbs for 1 Pact of Memory."
+44,Hyperreal,Key of Tempus Gate - Stokes,ATK increases by 10%. Casting Realm Travel will trigger Matrix if its not on cooldown. The first Hypermatrix Strike launched upon entering battle will generate 1 extra Sight Point.
+45,Kaleido,Star Voyager,ATK increases by 10%. Doubles the Base DMG buff towards The Final Touch granted by Vivid Brushwork. Frost Crystal now increases Ice DMG by 20%.
+46,Crimson Weave,Blazing Night,"Increases ATK by 10%. When Lucia: Crimson Weave is in Odachi Stance, increase Extra DMG Bonus by 15%. The obtain rate of Aphotic Gauge increases by 40%."
+47,Zitherwoe,Perpetuity,Increases ATK by 10%. Hanying: Zitherwoe can immediately ping another set of Signal Orbs while using any Orb Skill. This effect cannot be triggered consecutively. The DMG bonus of each Glimmer stack increases to 40%.
+48,Ferel Scent,Mánagarmr,Increases ATK by 10%. No.21: Feral Scent gains 3 Signal Orbs of the same color upon entry or swapping in. Lightning Surge now increases Lightning DMG by 20%.
+49,Indomitus,Crimson Roar,"ATK increases by 10%. Upon entry or swapping in, Noctis: Indomitus gains 120 Energy. Immediately gains one Explosive Orb upon activating Magnetic Pole Explosion."
+50,Echo,Astraea,"Increases ATK by 10%. Base DMG of Heavenlight Edge increases by 15%. Every time Might reaches the maximum value, gain a Signal Orb and a Mantra Orb of the same color. Ultralimit Torque now increases Physical DMG by 20%."
+51,Lost Lullaby,Metis,"ATK increases by 10%. The rate in which Lamia accumulates Abussos Points increases by 100%. When pinging a Tidal Orb, trigger Matrix if available."

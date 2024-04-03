@@ -1,0 +1,52 @@
+id,frame,notes
+1,Lotus,Duel - Has strong single attack ability;Dual Blades - Attack DMG boosting skill
+2,Eclipse,Melee - Has strong area attack ability.;Heal - Has ally healing skills.
+3,Storm,Damage Reduction - Reduces damage taken.;Shielding DMG - Shields all damages within the range of Signature Moves.
+4,Dawn,Duel - Has strong single attack ability;Mixed Damage - Able to deal Physical and Elemental DMG.
+5,Lux,Heal - Has ally healing skills.;Mixed Damage - Able to deal Physical and Elemental DMG.
+6,Palefire,Combo - Easy to deal high combo damage.;Mixed Damage - Able to deal Physical and Elemental DMG.
+7,Nightblade,Duel - Has strong single attack ability.;Backstab - Attacks at the back deal Extra Damage.
+8,Zero,Duel - Has strong single attack ability.;Energy Boost - Has shorter Cooldown of Signature Moves.
+9,Blast,Mixed Damage - Able to deal Physical and Elemental DMG.;Form Switch - Signature Move can switch attacking forms.
+10,Luminance,Heal - Has ally healing skills.;Members Damage reduction - Signature Move can reduce the damage taken by allies.
+11,Entropy,Combo - Easy to deal high combo damage.;Physical Damage - Skill combinations are powerful.
+12,Ember,Melee - Has strong area attack ability.;Mixed Damage - Able to deal Physical and Elemental DMG.
+13,Pulse,Mixed Damage - Able to deal Physical and Elemental DMG.;Resistance Reduction - Able to reduce Elemental Resistance of enemies.
+14,Tenebrion,Mixed Damage - Able to deal Physical and Elemental DMG.;Form Switch - Signature Move can switch attacking forms.
+15,Crimson Abyss,Duel - Has strong single attack ability.;Form Switch - Skills can switch attacking modes.
+16,Bastion,Block - Blocking Skill;Shield - Release a shield to defend.
+17,Astral,Agility - Able to transport across space instantly.;Mixed Damage - Able to deal Physical and Elemental DMG.
+18,Brilliance,Attraction - Able to attract the attention of enemies.;Shield - Releases a shield to defend.
+19,Veritas,Piercing - Deals great area damage.;Mixed Damage - Able to deal Physical and Elemental DMG.
+20,Silverfang,Attraction - Able to pull enemies in an area together.;Heal - Has ally healing skills.
+21,Arclight,Form Switch - Signature Move can switch attacking forms.;Shield - Releases a shield to defend.
+22,Plume,Continual Burst - Has sustained damage output;Form Switch - Skill can switch attacking modes
+23,Rozen,Energy Boost - Has shorter Cooldown of Signature Moves.;Heal - Has ally healing skills.
+24,Crocotta,Form Switch - Signature Move can switch attacking forms.;Burst - Switch forms for high burst.
+25,Rigor,Defense Down - Able to reduce Physical Defense of enemies.;Burst - Energy spheres provide great burst potential.
+26,Qilin,Melee - Uses follow-up skills to deal DMG and accumulate Energy;Tank - Deals continuous DMG after performing a Signature Move
+27,Pavo,Melee - Deals Extra DMG when Core Passive is activated;Summon - Summons a Pet to attack when using a Signature Move
+28,Laurel,Energy Amass - Use 3-Ping to trigger 3-Ping and amass energy;Burst - Her core form grants high burst and gains energy
+29,Hypnos,Heal — Able to heal friendly force;Snipe — Able to precisely snipe the enemy after dodge
+30,Tempest,Melee — Able to affect the game through different orb ping.;Burst — Able to switch to Signature Move status in a quick manner.
+31,Glory,Form Switch — Able to switch to a burst form and launch powerful attacks;Resistance Reduction — Able to reduce the Resistance of enemies
+32,XXI,Burst — A signature move that can deal massive DMG;Forced Evasion — Can remove abnormal status effects when in Haywire status
+33,Garnet,Burst — Deals massive DMG in a short time.;Resistance Reduction — Able to reduce the Resistance of enemies.
+34,Flambeau,Combo — Can deal various combos;Form Switch — Can switch Attack Modes for Signatures Moves
+35,Empyrea,Amplification — Enhances teammates;Burst — Deals massive DMG in a short time
+36,Capriccio,Amplification — Enhances teammates;Burst — Deals massive DMG in a short time
+37,Dragontoll,Summon — Uses her Signature Move to summon her weapon;Burst — Deals massive DMG with Core Passive Follow-Up
+38,Starfarer,Resistance Reduction — Able to reduce the Resistance of enemies.;Form Switch — Signature Move can switch attacking forms.
+39,Starveil,Control - Freezes enemies to restrain their actions.;Burst — Deals massive DMG in a short time.
+40,Scire,Resistance Reduction — Able to reduce Elemental Resistance of enemies.;Burst — Can deal large amounts of damage quickly.
+41,Arca,Combo — Continuously trigger core passive to deal high damage.;Burst — Can deal large amounts of damage quickly.
+42,Stigmata,Form Switch — Able to switch to a burst form and launch powerful attacks.;Burst — Deals massive DMG in a short time.
+43,Vitrum,Combo — Deals massive DMG by activating Core Passive repeatedly.;Burst — Signature Move can deal massive DMG.
+44,Hyperreal,Combo — Use three-pings in quick succession to deal high damage.;Burst — Can deal large amounts of damage quickly.
+45,Kaleido,Amplification — Enhances teammates.;Burst — Deals massive DMG in a short time.
+46,Crimson Weave,Form Switch — Skill can switch attack styles.;Burst — Can deal large amounts of damage quickly.
+47,Zitherwoe,"Heal - Has ally healing skills.;Physical Damage - Able to enhance herself, granting Pulao and Qu additional buffs."
+48,Ferel Scent,Amplification - Enhances teammates.;Burst - Deals massive DMG in a short time.
+49,Indomitus,Combo — Repeatedly perform Core Passive to deal massive DMG.;Burst — Signature Move can deal massive DMG.
+50,Echo,Amplification - Enhances teammates.;Burst - Deals massive DMG in a short time.
+51,Lost Lullaby,Burst - Deals massive DMG in a short time.;Form Switch - Signature Move can switch attacking forms.
