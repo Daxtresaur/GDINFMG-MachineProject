@@ -15,7 +15,7 @@ public class Web : MonoBehaviour
     {
         //StartCoroutine(GetAllCharacterData());
         //StartCoroutine(GetAllBosses());
-        StartCoroutine(GetAllTeams());
+        //StartCoroutine(GetAllTeams());
     }
 
     public static IEnumerator GetAllCharacterData()
@@ -106,17 +106,17 @@ public class Web : MonoBehaviour
                     break;
             }
 
+
             string[] rows = webRequest.downloadHandler.text.Split("|");
             for (int i = 0; i < rows.Length - 1; i++)
             {
                 string[] columns = rows[i].Split("~");
 
                 if (columns.Length == 1 || character_data.ContainsKey(columns[1])) { continue; }
-                BossesData data = new(columns[0], columns[1], columns[2], columns[3], columns[4][0]);
-                bosses_data.Add(columns[0], data);
+                
                 #region Get Sprites
-#if false
-                string textUri = $"{Application.streamingAssetsPath}/CharacterThumbnails/{columns[2]}.png";
+#if true
+                string textUri = $"{Application.streamingAssetsPath}/BossIcons/Boss-{columns[0]}.png";
                 UnityWebRequest texRequest = UnityWebRequestTexture.GetTexture(textUri);
                 yield return texRequest.SendWebRequest();
                 string[] tPages = uri.Split('/');
@@ -139,8 +139,8 @@ public class Web : MonoBehaviour
                 Texture2D texture2D = ((DownloadHandlerTexture)texRequest.downloadHandler).texture;
                 Sprite sprite = Sprite.Create(texture2D, new(0, 0, texture2D.width, texture2D.height), new Vector2(0.5f, 1f));
 
-                CharacterData cData = new(/*columns[0], */columns[1], columns[2], columns[3], columns[4], columns[5], sprite);
-                character_data.Add(cData.frame, cData);
+                BossesData data = new(columns[0], columns[1], columns[2], columns[3], columns[4][0], sprite);
+                bosses_data.Add(columns[0], data);
 #endif
                 #endregion
             }
@@ -214,13 +214,14 @@ public struct CharacterData
 
 public struct BossesData
 {
-    public BossesData(string name, string notes, string weakness, string resistance, char group)
+    public BossesData(string name, string notes, string weakness, string resistance, char group, Sprite sprite)
     {
         this.name = name;
         this.notes = notes;
         this.weakness = weakness;
         this.resistance = resistance;
         this.group = group;
+        this.sprite = sprite;
     }
 
     public string name { get; private set; }
@@ -228,6 +229,7 @@ public struct BossesData
     public string weakness { get; private set; }
     public string resistance { get; private set; }
     public char group { get; private set; }
+    public Sprite sprite { get; private set; }
 }
 
 public struct TeamData
