@@ -20,7 +20,7 @@ if ($result_max_id->num_rows > 0) {
     $new_id = 1; // If the table is empty, start from 1
 }
 
-$sql_insert_team = "INSERT INTO `team builder` (id, blue, red, yellow, leader, score, element) VALUES ($new_id, 'Character 1', 'Character 2', 'Character 3', '', 0, 'Physical')";
+$sql_insert_team = "INSERT INTO `team builder` (id, blue, red, yellow, leader, score, element) VALUES ($new_id, 'Character 1', 'Character 2', 'Character 3', 'Character 1', 0, 'Physical')";
 
 if ($conn->query($sql_insert_team) === TRUE) {
     echo $new_id;

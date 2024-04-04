@@ -9,6 +9,8 @@ public class CreateTeamUI : MonoBehaviour
 {
     [SerializeField] private IndividualTeamPanel TeamPrefab;
     [SerializeField] private Transform ParentObject;
+    
+    [SerializeField] private IndividualTeamPanel selectedTeamPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +24,29 @@ public class CreateTeamUI : MonoBehaviour
 
         foreach (var teams in Web.builtteam_data.Values)
         {
-            IndividualTeamPanel panel = Instantiate(TeamPrefab, ParentObject);
+            IndividualTeamPanel panel = InstantiateTeamPanel();
             yield return panel.SetPanel(teams);
             SetElement(teams.element, panel);
             SetTeamNumber(teams.id, panel);
             ActivateIndividualPanels(panel);
         }
+    }
+
+    private IndividualTeamPanel InstantiateTeamPanel()
+    {
+        IndividualTeamPanel panel = Instantiate(TeamPrefab, ParentObject);
+        return panel;
+    }
+
+    public void OnTeamPanelClicked(IndividualTeamPanel clickedPanel)
+    {
+        // Set the clicked panel as the selected panel
+        selectedTeamPanel = clickedPanel;
+    }
+
+    public IndividualTeamPanel GetSelectedTeamPanel()
+    {
+        return selectedTeamPanel;
     }
 
     public void AddEmptyTeam()
@@ -52,10 +71,10 @@ public class CreateTeamUI : MonoBehaviour
             else
             {
                 int newTeamID = int.Parse(webRequest.downloadHandler.text);
-                Debug.Log("New Team ID: " + newTeamID);
+                // Debug.Log("New Team ID: " + newTeamID);
 
                 // Instantiate and activate new team panel with the new team ID
-                IndividualTeamPanel panel = Instantiate(TeamPrefab, ParentObject);
+                IndividualTeamPanel panel = InstantiateTeamPanel();
                 SetTeamNumber(newTeamID, panel);
                 ActivateIndividualPanels(panel);
             }
