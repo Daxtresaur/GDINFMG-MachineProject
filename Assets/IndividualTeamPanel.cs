@@ -21,6 +21,7 @@ public class IndividualTeamPanel : MonoBehaviour
     [SerializeField] private GameObject blueLeaderObject;
     [SerializeField] private GameObject redLeaderObject;
     [SerializeField] private GameObject yellowLeaderObject;
+    private GameObject selectedCharacter;
 
     public IEnumerator SetPanel(TeamData teamData)
     {
@@ -107,4 +108,16 @@ public class IndividualTeamPanel : MonoBehaviour
 
         return null;
     }
+
+    public void SetSelectedCharacter(GameObject character)
+    {
+        selectedCharacter = character;
+    }
+
+    // Method to get the selected character
+    public GameObject GetSelectedCharacter()
+    {
+        return selectedCharacter;
+    }
+
 }

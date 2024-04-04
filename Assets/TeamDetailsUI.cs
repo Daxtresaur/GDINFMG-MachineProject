@@ -1,7 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class TeamDetailsUI : MonoBehaviour
@@ -12,10 +17,12 @@ public class TeamDetailsUI : MonoBehaviour
     [SerializeField] private List<Sprite> Class;
     [SerializeField] private List<Sprite> Rank;
     [SerializeField] private List<Sprite> Element;
+    [SerializeField] private TMP_Dropdown ElementDropdown;
 
     [Header("Blue Character")]
     public Image Blue_Image;
     public TextMeshProUGUI Blue_Name;
+    private string Blue_Frame;
     public Image Blue_Class;
     public TextMeshProUGUI Blue_ClassName;
     public Image Blue_Rank;
@@ -28,6 +35,7 @@ public class TeamDetailsUI : MonoBehaviour
     [Header("Red Character")]
     public Image Red_Image;
     public TextMeshProUGUI Red_Name;
+    private string Red_Frame;
     public Image Red_Class;
     public TextMeshProUGUI Red_ClassName;
     public Image Red_Rank;
@@ -40,6 +48,7 @@ public class TeamDetailsUI : MonoBehaviour
     [Header("Yellow Character")]
     public Image Yellow_Image;
     public TextMeshProUGUI Yellow_Name;
+    private string Yellow_Frame;
     public Image Yellow_Class;
     public TextMeshProUGUI Yellow_ClassName;
     public Image Yellow_Rank;
@@ -55,6 +64,7 @@ public class TeamDetailsUI : MonoBehaviour
     {
         selectedPanel = createTeamUI.GetSelectedTeamPanel();
         GetCharacterFrames();
+        SetElementDropdown();
         SetLeadToggle(selectedPanel.GetLeader());
         StartCoroutine(LoadTeamDetails());
     }
@@ -97,14 +107,17 @@ public class TeamDetailsUI : MonoBehaviour
         {
             case 0:
                 SetCharacterDetails(Blue_Image, Blue_Name, Blue_Class, Blue_ClassName, Blue_Rank, Blue_LeadToggle, Blue_Element1, Blue_Element1Name, Blue_Element2, Blue_Element2Name, characterData);
+                Blue_Frame = characterData.frame;
                 break;
 
             case 1:
                 SetCharacterDetails(Red_Image, Red_Name, Red_Class, Red_ClassName, Red_Rank, Red_LeadToggle, Red_Element1, Red_Element1Name, Red_Element2, Red_Element2Name, characterData);
+                Red_Frame = characterData.frame;
                 break;
 
             case 2:
                 SetCharacterDetails(Yellow_Image, Yellow_Name, Yellow_Class, Yellow_ClassName, Yellow_Rank, Yellow_LeadToggle, Yellow_Element1, Yellow_Element1Name, Yellow_Element2, Yellow_Element2Name, characterData);
+                Yellow_Frame = characterData.frame;
                 break;
 
             default:
@@ -281,6 +294,8 @@ public class TeamDetailsUI : MonoBehaviour
 
     private void SetLeadToggle(string leader)
     {
+        if (leader == null) return;
+
         Red_LeadToggle.isOn = false;
         Blue_LeadToggle.isOn = false;
         Yellow_LeadToggle.isOn = false;
@@ -300,13 +315,75 @@ public class TeamDetailsUI : MonoBehaviour
             Yellow_LeadToggle.isOn = true;
             Debug.Log("yellow toggle on");
         }
-        Debug.Log("Red name: " + Red_LeadToggle.name);
-        Debug.Log("Leader name: " + leader);
+    }
+
+    private string GetLeadToggle()
+    {
+        if (Red_LeadToggle.isOn)
+            return Red_Frame.ToString();
+        else if (Blue_LeadToggle.isOn)
+            return Blue_Frame.ToString();
+        else if (Yellow_LeadToggle.isOn)
+            return Yellow_Frame.ToString();
+
+        return null;
+    }
+
+    public void OnSaveButtonClicked()
+    {
+        string teamID = createTeamUI.GetTeamNumber(selectedPanel).ToString();
+        string[] characterFrames = teamCharacterFrames;
+        string leader = GetLeadToggle();
+        string element = ElementDropdown.options[ElementDropdown.value].text;
+
+        Debug.Log(teamID + ", " + leader + ", " + element);
+
+        StartCoroutine(SaveTeamData(teamID, characterFrames, leader, element));
+        createTeamUI.OnRefresh();
+    }
+
+    private IEnumerator SaveTeamData(string teamID, string[] characterFrames, string leader, string element)
+    {
+        // Create a form to send data to PHP script
+        string url = "http://localhost/MP/UpdateBuiltTeam.php";
+        string blueFrame = characterFrames[0];
+        string redFrame = characterFrames[1];
+        string yellowFrame = characterFrames[2];
+
+        WWWForm form = new();
+        form.AddField("teamID", teamID);
+        form.AddField("blueFrame", blueFrame);
+        form.AddField("redFrame", redFrame);
+        form.AddField("yellowFrame", yellowFrame);
+        form.AddField("leader", leader);
+        form.AddField("element", element);
+
+        // Send data to PHP script
+        using (UnityWebRequest www = UnityWebRequest.Post(url, form))
+        {
+            yield return www.SendWebRequest();
+            
+            string[] cPages = url.Split('/');
+            int cPage = cPages.Length - 1;
+
+            switch (www.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(cPages[cPage] + ": Error: " + www.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(cPages[cPage] + ": HTTP Error: " + www.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(cPages[cPage] + ":\nReceived: " + www.downloadHandler.text);
+                    break;
+            }
+        }
     }
 
     public void GetCharacterFrames()
     {
-        // selectedPanel = createTeamUI.GetSelectedTeamPanel();
         // If no errors, then child should be named "TeamGroup".
         Transform team = selectedPanel.transform.GetChild(1);
 
@@ -317,6 +394,12 @@ public class TeamDetailsUI : MonoBehaviour
         teamCharacterFrames[0] = blue.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
         teamCharacterFrames[1] = red.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
         teamCharacterFrames[2] = yellow.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text;
+    }
+
+    private void SetElementDropdown()
+    {
+        ElementDropdown.value = ElementDropdown.options.FindIndex(option => option.text == createTeamUI.GetElement(selectedPanel));
+        Debug.LogError("Element Found: " + ElementDropdown.value);
     }
 
 }

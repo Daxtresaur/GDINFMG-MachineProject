@@ -18,8 +18,28 @@ public class CreateTeamUI : MonoBehaviour
         StartCoroutine(InitializePanels());
     }
 
+    public void OnRefresh()
+    {
+        Debug.Log("refreshed");
+        DestroyClone();
+        StartCoroutine(InitializePanels());
+    }
+
+    private void DestroyClone()
+    {
+        foreach (Transform child in ParentObject)
+        {
+            Debug.Log(child.name);
+            if (child.name.Contains("Clone"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
     public IEnumerator InitializePanels()
     {
+        Web.builtteam_data.Clear();
         yield return Web.GetAllBuiltTeams();
 
         foreach (var teams in Web.builtteam_data.Values)
@@ -30,6 +50,11 @@ public class CreateTeamUI : MonoBehaviour
             SetTeamNumber(teams.id, panel);
             ActivateIndividualPanels(panel);
         }
+    }
+
+    public void AddPanels()
+    {
+
     }
 
     private IndividualTeamPanel InstantiateTeamPanel()
@@ -87,10 +112,35 @@ public class CreateTeamUI : MonoBehaviour
         text.Find("Element").gameObject.GetComponent<TextMeshProUGUI>().text = element;
     }
 
+    public string GetElement(IndividualTeamPanel panel)
+    {
+        Transform text = panel.gameObject.transform.Find("Element Text");
+        return text.Find("Element").gameObject.GetComponent<TextMeshProUGUI>().text;
+    }
+
     public void SetTeamNumber(int num, IndividualTeamPanel panel)
     {
         panel.gameObject.GetComponent<TextMeshProUGUI>().text = "Team " + (num);
     }
+
+    public int GetTeamNumber(IndividualTeamPanel panel)
+    {
+        TextMeshProUGUI textComponent = panel.gameObject.GetComponent<TextMeshProUGUI>();
+        string text = textComponent.text;
+
+        string[] parts = text.Split(' ');
+        if (parts.Length > 1)
+        {
+            string numberString = parts[parts.Length - 1];
+            if (int.TryParse(numberString, out int number))
+            {
+                return number;
+            }
+        }
+
+        return -1;
+    }
+
 
     public void ActivateIndividualPanels(IndividualTeamPanel panel)
     {
@@ -100,5 +150,43 @@ public class CreateTeamUI : MonoBehaviour
     public void DeactivateIndividualPanels(IndividualTeamPanel panel)
     {
         panel.gameObject.SetActive(false);
+    }
+
+    private IEnumerator DeleteTeamData(string teamID)
+    {
+        // Create a form to send data to PHP script
+        string url = "http://localhost/MP/DeleteBuiltTeam.php";
+        WWWForm form = new();
+        form.AddField("teamID", teamID);
+
+        // Send data to PHP script
+        using (UnityWebRequest www = UnityWebRequest.Post(url, form))
+        {
+            yield return www.SendWebRequest();
+
+            string[] cPages = url.Split('/');
+            int cPage = cPages.Length - 1;
+
+            switch (www.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(cPages[cPage] + ": Error: " + www.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(cPages[cPage] + ": HTTP Error: " + www.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(cPages[cPage] + ":\nReceived: " + www.downloadHandler.text);
+                    break;
+            }
+        }
+    }
+
+    public void OnDeleteButtonClicked(IndividualTeamPanel panel)
+    {
+        int teamID = GetTeamNumber(panel);
+        StartCoroutine(DeleteTeamData(teamID.ToString()));
+        OnRefresh(); // Refresh the list after deletion
     }
 }
