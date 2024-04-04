@@ -17,17 +17,12 @@ if ($conn->connect_error) {
 
 // Get data sent from Unity
 $teamID = $_POST['teamID'];
-$blueFrame = $_POST['blueFrame'];
-$redFrame = $_POST['redFrame'];
-$yellowFrame = $_POST['yellowFrame'];
-$leader = $_POST['leader'];
-$element = $_POST['element'];
 
-// Prepare and execute SQL query to update team data in table
-$sql = "UPDATE `team builder` SET blue='$blueFrame', red='$redFrame', yellow='$yellowFrame', leader='$leader', element='$element' WHERE id=$teamID";
+// Prepare and execute SQL query to delete team data from table
+$sql = "DELETE FROM `team builder` WHERE id=$teamID";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Team updated successfully";
+    echo "Team deleted successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

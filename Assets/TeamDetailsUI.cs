@@ -385,7 +385,7 @@ public class TeamDetailsUI : MonoBehaviour
     public void GetCharacterFrames()
     {
         // If no errors, then child should be named "TeamGroup".
-        Transform team = selectedPanel.transform.GetChild(1);
+        Transform team = selectedPanel.transform.GetChild(2);
 
         Transform blue = team.GetChild(0);
         Transform red = team.GetChild(1);
