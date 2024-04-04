@@ -13,7 +13,7 @@ public class TeamDetailsUI : MonoBehaviour
 {
     [SerializeField] private CreateTeamUI createTeamUI;
     [SerializeField] private IndividualTeamPanel selectedPanel;
-    [SerializeField] private string[] teamCharacterFrames = new string[] { "frame1", "frame2", "frame3" };
+    [SerializeField] public string[] teamCharacterFrames = new string[] { "frame1", "frame2", "frame3" };
     [SerializeField] private List<Sprite> Class;
     [SerializeField] private List<Sprite> Rank;
     [SerializeField] private List<Sprite> Element;
@@ -62,6 +62,12 @@ public class TeamDetailsUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // OnRefresh();
+    }
+
+    public void OnRefresh()
+    {
+        Debug.Log("Enabled deets yeet");
         selectedPanel = createTeamUI.GetSelectedTeamPanel();
         GetCharacterFrames();
         SetElementDropdown();
@@ -69,19 +75,9 @@ public class TeamDetailsUI : MonoBehaviour
         StartCoroutine(LoadTeamDetails());
     }
 
-    private void OnEnable()
-    {
-        Debug.Log("Enabled yeet");
-        Start();
-    }
-
-    private void OnDisable()
-    {
-        Debug.Log("Disabled yeet");
-    }
-
     private IEnumerator LoadTeamDetails()
     {
+        Web.character_data.Clear();
         yield return Web.GetAllCharacterData();
 
         // Iterate over each character frame in the team
@@ -160,7 +156,7 @@ public class TeamDetailsUI : MonoBehaviour
         }
     }
 
-    private void SetDefaultCharacterDetails(int index)
+    public void SetDefaultCharacterDetails(int index)
     {
         switch (index)
         {
@@ -331,6 +327,11 @@ public class TeamDetailsUI : MonoBehaviour
 
     public void OnSaveButtonClicked()
     {
+        if (selectedPanel == null)
+        {
+            Debug.LogError("ERROR: Selected Panel is Null");
+            return;
+        }
         string teamID = createTeamUI.GetTeamNumber(selectedPanel).ToString();
         string[] characterFrames = teamCharacterFrames;
         string leader = GetLeadToggle();

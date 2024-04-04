@@ -35,10 +35,12 @@ public class CreateTeamUI : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+        selectedTeamPanel = null;
     }
 
     public IEnumerator InitializePanels()
     {
+        yield return new WaitForSeconds(0.1f);
         Web.builtteam_data.Clear();
         yield return Web.GetAllBuiltTeams();
 
@@ -52,11 +54,6 @@ public class CreateTeamUI : MonoBehaviour
         }
     }
 
-    public void AddPanels()
-    {
-
-    }
-
     private IndividualTeamPanel InstantiateTeamPanel()
     {
         IndividualTeamPanel panel = Instantiate(TeamPrefab, ParentObject);
@@ -65,12 +62,12 @@ public class CreateTeamUI : MonoBehaviour
 
     public void OnTeamPanelClicked(IndividualTeamPanel clickedPanel)
     {
-        // Set the clicked panel as the selected panel
         selectedTeamPanel = clickedPanel;
     }
 
     public IndividualTeamPanel GetSelectedTeamPanel()
     {
+        Debug.Log("Team Panel: " + selectedTeamPanel.name.ToString());
         return selectedTeamPanel;
     }
 
@@ -128,12 +125,14 @@ public class CreateTeamUI : MonoBehaviour
         TextMeshProUGUI textComponent = panel.gameObject.GetComponent<TextMeshProUGUI>();
         string text = textComponent.text;
 
+        Debug.Log("Team No.: " + text);
         string[] parts = text.Split(' ');
         if (parts.Length > 1)
         {
             string numberString = parts[parts.Length - 1];
             if (int.TryParse(numberString, out int number))
             {
+                Debug.Log("Final Team No.: " + text);
                 return number;
             }
         }
