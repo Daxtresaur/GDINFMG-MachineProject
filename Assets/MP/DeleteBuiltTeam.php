@@ -23,6 +23,16 @@ $sql = "DELETE FROM `team builder` WHERE id=$teamID";
 
 if ($conn->query($sql) === TRUE) {
     echo "Team deleted successfully";
+
+    // After deletion, update the IDs to ensure proper arrangement
+    $updateSql = "SET @num := 0;
+                  UPDATE `team builder` SET id = @num := @num + 1;
+                  ALTER TABLE `team builder` AUTO_INCREMENT = 1;";
+    if ($conn->multi_query($updateSql) === TRUE) {
+        echo "ID values updated successfully";
+    } else {
+        echo "Error updating ID values: " . $conn->error;
+    }
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
