@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `bosses`
 --
-
+drop table if exists `bosses`;
 CREATE TABLE `bosses` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
+  `name` varchar(30) NOT NULL,
   `notes` text NOT NULL,
   `weakness` text NOT NULL,
   `resistance` text NOT NULL,
@@ -42,30 +42,30 @@ CREATE TABLE `bosses` (
 --
 
 INSERT INTO `bosses` (`id`, `name`, `notes`, `weakness`, `resistance`, `group`, `affixes`) VALUES
-(25, 'Musashi IX', 'Musashi IX fought alongside humans against the Punishing Virus until the end. Now it walks upon the abandoned ruins of civilization as a Corrupted, but for some reason it has kept the clumsy bandaging that a kind-hearted civilian once gave him.', 'Tank-type Characters', 'None', 'a', ''),
-(26, 'Nozzle', 'Luna is an agent - a special member among the mysterious Ascendants. She eliminated all the enemies in the Ascension-Network with the overwhelming power of various Punishing Virus Heteromer weapons.', 'Fire', 'Ice', 'a', ''),
-(27, 'Roland', 'One of the Ascendant, employing his gun and chain blade to cause chaos on the battlefield. Few have been able to get him to drop his nonchalant attitude in battle, and none have lived to tell the tale.', 'Physical', 'Dark', 'a', ''),
-(28, 'Unknown Data Cluster', 'A data cluster born in Liv\'s contaminated M.I.N.D. with no clear data about it. The contaminated data formed a crimson light beam, corrupting everything it touches in the M.I.N.D.', 'Physical', 'None', 'a', ''),
-(29, 'Luna', 'Luna is an agent - a special member among the mysterious Ascendants. She eliminated all the enemies in the Ascension-Network with the overwhelming power of various Punishing Virus Heteromer weapons.', 'Fire', 'None', 'a', ''),
-(30, 'Qu', 'Empress of Kowloong Metropolis and one of the few granted the title of Transcendant. She wields the Dragon Glaive as a natural extension of her vigorous, elegant body, allowing her to unleash the full potential of its might. Such a blade kills all who are bold and treacherous.', 'Physical', 'None', 'a', ''),
-(31, 'Shark-speare [Dark]', 'The bionic mascot of Venus Splash Park. Once it has entered the defense mode, Shark-speare will turn into a powerful special defense mechanoid.', 'None', 'None', 'a', ''),
-(32, 'Moon Eater', 'Born on the moon, this Hetero-Creature devoured zero-point energy to grow into this abomination. Its blue light has the power to corrode everything nearby, and its large, inorganic eye only stares at its enemy with greed.', 'Fire', 'None', 'a', ''),
-(33, 'Vassago', 'A restoration of the guardians of a lost desert cilivization, they are able to move swiftly in sand, tearing apart any creature who enters the desert without permission.', 'Lightning', 'Fire', 'b', ''),
-(34, 'Unknown Construct α', 'A Construct of unknown origin, wielding a katana just like Lucia, but far more experienced and skilled at it. Every swing seems to tear apart the fabric of reality.', 'Rosetta', 'None', 'b', ''),
-(35, 'Roseblade', '', 'Lightning', 'Ice', 'b', ''),
-(36, 'Huaxu', 'A projection of the Ai systerm on the Nighter that summons various forms of hands to crush her enemies. Has multiple attack modes, such as Pain Hammer, and Lightning Storm.', 'Ice', 'Physical', 'b', ''),
-(37, 'Siren', 'She.. was eroded by the Punishing Virus and because the mindless beast-\"Siren\". Her once beautiful voice turning into a shrill roar filled with nothing but despair and anger. It now viciously attacks all living creatures with the twisted limbs given to it by the Red Tide.', 'Lightning', 'None', 'b', ''),
-(38, 'Machiavelli', 'A mechanoid manufactured by the mysterious \"Safein\" School for execution and containment. Compared with the other two Safein Constructs, the bionic design allows him to swing his scepter-like weapon with ease. The more advanced control units also enable him to control landscape', 'Ice', 'None', 'b', ''),
-(39, 'Shark-speare', 'Every entertaining function of this bionic mascot of Venus Splash Park could easily be turned into a weapon with simple recoding. Once put into the defense mode, it will instantly turn into a special defense machine with power far beyond what its cute appearance suggests.', 'None', 'None', 'b', ''),
-(40, 'Iron Maiden: Phantom', 'The spiked armor on this corrupted Construct is more than just a deadly weapon or solid protection, it also continues to spread the infection throughout the interior of the Construct.', 'Lightning', 'None', 'b', ''),
-(41, 'Mutated Mechanoid: Madorea', '--', 'Ice', 'None', 'b', ''),
-(42, 'Iron Maiden', 'The spiked armor on this corrupted Construct is more than just a deadly weapon or solid protection, it also continues to spread the infection throughout the interior of the Construct.', 'Dark', 'Physical', 'y', ''),
-(43, 'Camu', 'The incarnation of a certain Construct\'s will, brutal and swift in battle. Its great sword is often the first and last thing that its enemies see.', 'Dark, any Kamui model', 'None', 'y', ''),
-(44, 'Rosetta', '', 'Melee attacks (within 3 meters)', 'None', 'y', ''),
-(45, 'Pterygota Queen', 'Born in the center of Polyphage, this humanoid Punishing Hetero-creature served as its terminal and could also be used to control it. It resembles an abomination crawling out of the abyss. Its shiny, red scythe and wings suggested its bloodthirsty nature, warning any living things not to approach.', 'Dark', 'None', 'y', ''),
-(46, 'Voodoo', 'According to the battle report submitted by Cerberus, Voodoo seems to be mentally unstable but still has great combat capability. Thanks to the unparalleled mobility given by the wings on her back, Voodoo is just like a hunter who always launches a surprise attack and leaves immediately afterward.', 'Dark', 'None', 'y', ''),
-(47, 'Lamia', 'An Ascendant with a huge fishtail and excellent camouflage capabilty and underwater battle performance. Her spear can deal damage to a large area, but the electric ghosts that disturb one\'s senses and the phantoms that show up at random spots are harder to deal with.', 'Basic Attacks, Signature Moves', 'None', 'y', ''),
-(48, 'Hamlet', '\"Hamlet\" is a holographic AI theatrical machine owned by the WGAA that utilizes the latest theater play technologies. When a non-tragic ending becomes more reasonable, Hamlet will show up to put an end to the performance, bringing back perfection and melancholy.', '3-Pings', 'None', 'y', '');
+(1, 'Musashi IX', 'Musashi IX fought alongside humans against the Punishing Virus until the end. Now it walks upon the abandoned ruins of civilization as a Corrupted, but for some reason it has kept the clumsy bandaging that a kind-hearted civilian once gave him.', 'Tank-type Characters', 'None', 'a', ''),
+(2, 'Nozzle', 'Luna is an agent - a special member among the mysterious Ascendants. She eliminated all the enemies in the Ascension-Network with the overwhelming power of various Punishing Virus Heteromer weapons.', 'Fire', 'Ice', 'a', ''),
+(3, 'Roland', 'One of the Ascendant, employing his gun and chain blade to cause chaos on the battlefield. Few have been able to get him to drop his nonchalant attitude in battle, and none have lived to tell the tale.', 'Physical', 'Dark', 'a', ''),
+(4, 'Unknown Data Cluster', 'A data cluster born in Liv\'s contaminated M.I.N.D. with no clear data about it. The contaminated data formed a crimson light beam, corrupting everything it touches in the M.I.N.D.', 'Physical', 'None', 'a', ''),
+(5, 'Luna', 'Luna is an agent - a special member among the mysterious Ascendants. She eliminated all the enemies in the Ascension-Network with the overwhelming power of various Punishing Virus Heteromer weapons.', 'Fire', 'None', 'a', ''),
+(6, 'Qu', 'Empress of Kowloong Metropolis and one of the few granted the title of Transcendant. She wields the Dragon Glaive as a natural extension of her vigorous, elegant body, allowing her to unleash the full potential of its might. Such a blade kills all who are bold and treacherous.', 'Physical', 'None', 'a', ''),
+(7, 'Shark-speare [Dark]', 'The bionic mascot of Venus Splash Park. Once it has entered the defense mode, Shark-speare will turn into a powerful special defense mechanoid.', 'None', 'None', 'a', ''),
+(8, 'Moon Eater', 'Born on the moon, this Hetero-Creature devoured zero-point energy to grow into this abomination. Its blue light has the power to corrode everything nearby, and its large, inorganic eye only stares at its enemy with greed.', 'Fire', 'None', 'a', ''),
+(9, 'Vassago', 'A restoration of the guardians of a lost desert cilivization, they are able to move swiftly in sand, tearing apart any creature who enters the desert without permission.', 'Lightning', 'Fire', 'b', ''),
+(10, 'Unknown Construct α', 'A Construct of unknown origin, wielding a katana just like Lucia, but far more experienced and skilled at it. Every swing seems to tear apart the fabric of reality.', 'Rosetta', 'None', 'b', ''),
+(11, 'Roseblade', '', 'Lightning', 'Ice', 'b', ''),
+(12, 'Huaxu', 'A projection of the Ai systerm on the Nighter that summons various forms of hands to crush her enemies. Has multiple attack modes, such as Pain Hammer, and Lightning Storm.', 'Ice', 'Physical', 'b', ''),
+(13, 'Siren', 'She.. was eroded by the Punishing Virus and because the mindless beast-\"Siren\". Her once beautiful voice turning into a shrill roar filled with nothing but despair and anger. It now viciously attacks all living creatures with the twisted limbs given to it by the Red Tide.', 'Lightning', 'None', 'b', ''),
+(14, 'Machiavelli', 'A mechanoid manufactured by the mysterious \"Safein\" School for execution and containment. Compared with the other two Safein Constructs, the bionic design allows him to swing his scepter-like weapon with ease. The more advanced control units also enable him to control landscape', 'Ice', 'None', 'b', ''),
+(15, 'Shark-speare', 'Every entertaining function of this bionic mascot of Venus Splash Park could easily be turned into a weapon with simple recoding. Once put into the defense mode, it will instantly turn into a special defense machine with power far beyond what its cute appearance suggests.', 'None', 'None', 'b', ''),
+(16, 'Iron Maiden: Phantom', 'The spiked armor on this corrupted Construct is more than just a deadly weapon or solid protection, it also continues to spread the infection throughout the interior of the Construct.', 'Lightning', 'None', 'b', ''),
+(17, 'Mutated Mechanoid: Madorea', '--', 'Ice', 'None', 'b', ''),
+(18, 'Iron Maiden', 'The spiked armor on this corrupted Construct is more than just a deadly weapon or solid protection, it also continues to spread the infection throughout the interior of the Construct.', 'Dark', 'Physical', 'y', ''),
+(19, 'Camu', 'The incarnation of a certain Construct\'s will, brutal and swift in battle. Its great sword is often the first and last thing that its enemies see.', 'Dark, any Kamui model', 'None', 'y', ''),
+(20, 'Rosetta', '', 'Melee attacks (within 3 meters)', 'None', 'y', ''),
+(21, 'Pterygota Queen', 'Born in the center of Polyphage, this humanoid Punishing Hetero-creature served as its terminal and could also be used to control it. It resembles an abomination crawling out of the abyss. Its shiny, red scythe and wings suggested its bloodthirsty nature, warning any living things not to approach.', 'Dark', 'None', 'y', ''),
+(22, 'Voodoo', 'According to the battle report submitted by Cerberus, Voodoo seems to be mentally unstable but still has great combat capability. Thanks to the unparalleled mobility given by the wings on her back, Voodoo is just like a hunter who always launches a surprise attack and leaves immediately afterward.', 'Dark', 'None', 'y', ''),
+(23, 'Lamia', 'An Ascendant with a huge fishtail and excellent camouflage capabilty and underwater battle performance. Her spear can deal damage to a large area, but the electric ghosts that disturb one\'s senses and the phantoms that show up at random spots are harder to deal with.', 'Basic Attacks, Signature Moves', 'None', 'y', ''),
+(24, 'Hamlet', '\"Hamlet\" is a holographic AI theatrical machine owned by the WGAA that utilizes the latest theater play technologies. When a non-tragic ending becomes more reasonable, Hamlet will show up to put an end to the performance, bringing back perfection and melancholy.', '3-Pings', 'None', 'y', '');
 
 -- --------------------------------------------------------
 
@@ -73,9 +73,10 @@ INSERT INTO `bosses` (`id`, `name`, `notes`, `weakness`, `resistance`, `group`, 
 -- Table structure for table `character notes`
 --
 
+drop table if exists `character notes`;
 CREATE TABLE `character notes` (
   `id` int(11) NOT NULL,
-  `frame` text NOT NULL,
+  `frame` varchar(15) NOT NULL,
   `notes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -142,10 +143,11 @@ INSERT INTO `character notes` (`id`, `frame`, `notes`) VALUES
 -- Table structure for table `characters`
 --
 
+drop table if exists `characters`;
 CREATE TABLE `characters` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL,
-  `frame` text NOT NULL,
+  `frame` varchar(15) NOT NULL,
   `rank` varchar(4) NOT NULL,
   `element` text NOT NULL,
   `class` text NOT NULL
@@ -213,7 +215,7 @@ INSERT INTO `characters` (`id`, `name`, `frame`, `rank`, `element`, `class`) VAL
 --
 -- Table structure for table `memory set`
 --
-
+drop table if exists `memory set`;
 CREATE TABLE `memory set` (
   `id` int(11) NOT NULL,
   `frame` varchar(20) NOT NULL,
@@ -354,9 +356,31 @@ INSERT INTO `memory set` (`id`, `frame`, `memory1`, `memory2`, `memory3`, `top`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teams`
+-- Table structure for table `team builder`
 --
 
+drop table if exists `team builder`;
+CREATE TABLE `team builder` (
+  `id` int(11) NOT NULL,
+  `blue` text NOT NULL,
+  `red` text NOT NULL,
+  `yellow` text NOT NULL,
+  `leader` text NOT NULL,
+  `score` int(11) NOT NULL,
+  `element` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `team builder`
+  ADD PRIMARY KEY (`id`),
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
+  MODIFY `score` int(11) DEFAULT 0;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teams`
+--
+drop table if exists `teams`;
 CREATE TABLE `teams` (
   `id` int(11) NOT NULL,
   `blue` text NOT NULL,
@@ -400,7 +424,7 @@ INSERT INTO `teams` (`id`, `blue`, `red`, `yellow`, `leader`, `competitive`, `sc
 --
 -- Table structure for table `weapon`
 --
-
+drop table if exists `weapon`;
 CREATE TABLE `weapon` (
   `id` int(11) NOT NULL,
   `frame` varchar(20) NOT NULL,
