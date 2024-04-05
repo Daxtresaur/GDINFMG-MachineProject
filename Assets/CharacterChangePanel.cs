@@ -14,7 +14,7 @@ public class CharacterChangePanel : MonoBehaviour
     [SerializeField] private CreateTeamUI createTeamUI;
     [SerializeField] private IndividualTeamPanel selectedPanel;
     [SerializeField] private TeamDetailsUI TeamDetailsPanel;
-    private int characterIndex = -1;
+    public int characterIndex = -1;
 
     [Header("Set Image")]
     [SerializeField] private Image overwriteImage;
@@ -23,7 +23,7 @@ public class CharacterChangePanel : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        StartCoroutine(Co_LoadCharacters());
+        // StartCoroutine(Co_LoadCharacters());
     }
 
     public void OnRefresh()
@@ -76,7 +76,6 @@ public class CharacterChangePanel : MonoBehaviour
     public void SetCharacterIndex(int index)
     {
         characterIndex = index;
-        OnRefresh();
     }
 
     public void SetImage(string frame)
@@ -98,17 +97,19 @@ public class CharacterChangePanel : MonoBehaviour
     {
         string frame = GetCharacterFrame();
         string frameName = frameText.text;
-        string teamID = createTeamUI.GetTeamNumber(selectedPanel).ToString();
+        string teamID = createTeamUI.GetTeamNumber(TeamDetailsPanel.selectedPanel).ToString();
 
-        Debug.Log(frame + ", " + frameName + ", " + teamID);
-        StartCoroutine(SaveCharacter(frame, frameName, teamID));
-        
+        TeamDetailsPanel.teamCharacterFrames[characterIndex] = frameName;
+        Debug.Log("Frames: " + TeamDetailsPanel.teamCharacterFrames[0] + ", " + TeamDetailsPanel.teamCharacterFrames[1]
+            + ", " + TeamDetailsPanel.teamCharacterFrames[2]);
+
+        // StartCoroutine(SaveCharacter(frame, frameName, teamID));
+        TeamDetailsPanel.OnReturn();
     }
 
     private IEnumerator SaveCharacter(string frame, string frameName, string teamID)
     {
-        yield return new WaitForSeconds(0.2f);
-        string url = "http://localhost/MP/EditCharacter.php";
+        string url = "https://localhost/MP/EditCharacter.php";
 
         WWWForm form = new();
         form.AddField("frame", frame);
@@ -118,6 +119,7 @@ public class CharacterChangePanel : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url, form)) 
         {
             yield return www.SendWebRequest();
+            Debug.Log("Response: " + www.result);
 
             string[] cPages = url.Split('/');
             int cPage = cPages.Length - 1;
@@ -136,8 +138,6 @@ public class CharacterChangePanel : MonoBehaviour
                     break;
             }
         }
-
-        TeamDetailsPanel.OnRefresh();
     }
 
     private string GetCharacterFrame()
