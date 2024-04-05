@@ -9,6 +9,7 @@ using System;
 
 public class PainCagePanel : MonoBehaviour
 {
+    [SerializeField] private Image boss_img;
     [SerializeField] private TextMeshProUGUI boss_nameText;
     [SerializeField] private TextMeshProUGUI boss_affixesText;
     [SerializeField] private Transform content;
@@ -19,6 +20,7 @@ public class PainCagePanel : MonoBehaviour
     public void OpenMe(string boss_name, string affixes)
     {
         GDRUIManager.GetInstance().OpenPanel(transform);
+        this.boss_img.sprite = Web.bosses_data[boss_name].sprite;
         this.boss_nameText.SetText(boss_name);
         boss_affixesText.SetText(affixes);
         StartCoroutine(FillTeams($"WHERE element = '{affixes}';"));

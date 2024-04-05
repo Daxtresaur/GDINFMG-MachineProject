@@ -215,7 +215,7 @@ public class Web : MonoBehaviour
                     Debug.Log(cPages[cPage] + ":\nReceived: " + webRequest.downloadHandler.text);
                     break;
             }
-
+            if (webRequest.downloadHandler.text == "0 results") yield break;
             string[] rows = webRequest.downloadHandler.text.Split("\n");
             for (int i = 0; i < rows.Length - 1; i++)
             {
